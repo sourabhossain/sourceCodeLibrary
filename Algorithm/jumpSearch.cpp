@@ -35,7 +35,7 @@ bool jumpSearch(vector<int>& data, int key) {
 	}
 
 	return false;
-} // end jumpSearch function
+}
 
 int main()
 {

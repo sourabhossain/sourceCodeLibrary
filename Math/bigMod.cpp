@@ -15,7 +15,7 @@ long long bigMod(string n, long long m) {
 	}
 
 	return mod;
-} // end bigMod function 
+}
 
 int main()
 {
@@ -23,7 +23,7 @@ int main()
 	long long m;
 
 	cin >> n >> m;
-	cout << bigMod(n, m) << endl; // go to bigMod function 
+	cout << bigMod(n, m) << endl;
 
 	return 0;
 }

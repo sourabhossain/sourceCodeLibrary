@@ -45,7 +45,7 @@ string bigMultiplication(string first, string second) {
 	}
 
 	return ans;
-} // end bigMultiplication function
+}
 
 int main()
 {

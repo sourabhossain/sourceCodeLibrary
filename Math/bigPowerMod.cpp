@@ -20,7 +20,7 @@ int bigMod(int n, int p, int m) {
 	}
 
 	return mod;
-} // end bigMod function
+}
 
 int main()
 {

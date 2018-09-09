@@ -27,7 +27,7 @@ bool isSmaller(string first, string second) {
 	}
 
     return false;
-} // end isSmaller function
+}
 
 string bigSubtraction(string first, string second) {
 	if(isSmaller(first, second)) {
@@ -68,14 +68,14 @@ string bigSubtraction(string first, string second) {
 
 	reverse(result.begin(), result.end());
 	return result;
-} // end bigSubtraction function
+}
 
 int main()
 {
 	string first, second;
 
 	cin >> first >> second;
-	cout << bigSubtraction(first, second) << endl; // go to bigSubtraction function
+	cout << bigSubtraction(first, second) << endl;
     
 	return 0;
 }

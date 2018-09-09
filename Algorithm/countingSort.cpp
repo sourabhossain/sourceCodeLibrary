@@ -8,7 +8,7 @@
 
 int count[SIZE];
 
-void countingSort(int *data, int size) {
+void countingSort(vector<int>& data, int size) {
     for(int i = 0; i < size; i++) {
         count[data[i]]++;
     }
@@ -18,27 +18,25 @@ void countingSort(int *data, int size) {
             data[k++] = i;
         }
     }
-} // end countingSort
+}
 
 int main()
 {
     int size;
 
     scanf("%d", &size);
-
-    int *data = new int(size);
+    vector<int> data(size);
 
     for(int i = 0; i < size; i++) {
         scanf("%d", &data[i]);
     }
 
-    countingSort(data, size); // go to countingSort function
+    countingSort(data, size);
 
     for(int i = 0; i < size; i++) {
         printf("%d ", data[i]);
     }
     putchar('\n');
 
-    delete [] data;
     return 0;
 }

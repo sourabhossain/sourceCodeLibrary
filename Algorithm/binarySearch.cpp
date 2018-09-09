@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int binarySearch(vector <int> &data, int target) {
+int binarySearch(vector<int>& data, int target) {
 	int length = data.size();
 
 	if(length == 0) {
@@ -31,7 +31,7 @@ int binarySearch(vector <int> &data, int target) {
     }
 
 	return -1;
-} // end binarySearch function
+}
 
 int main()
 {
@@ -46,7 +46,7 @@ int main()
     
     sort(data.begin(), data.end());
 
-    printf("%d\n", binarySearch(data, target)); // go to binarySearch function
+    printf("%d\n", binarySearch(data, target));
     
 	return 0;
 }

@@ -36,7 +36,7 @@ int main()
 		scanf("%d", &data[i]);
 	} 
 
-	printf("Index: %d\n", binarySearch(0, n, key, data));
+	printf("%d\n", binarySearch(0, n, key, data));
    
 	return 0;
 }

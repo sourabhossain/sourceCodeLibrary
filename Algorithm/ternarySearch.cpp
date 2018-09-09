@@ -34,7 +34,7 @@ int ternarySearch(vector<int>& data, int key) {
 	}
 
 	return -1;
-} // end ternarySearch function
+}
 
 int main()
 {   
@@ -47,7 +47,7 @@ int main()
 		scanf("%d", &data[i]);
 	}
 
-	printf("Index: %d\n", ternarySearch(data, key));
+	printf("%d\n", ternarySearch(data, key));
 
 	return 0;
 }

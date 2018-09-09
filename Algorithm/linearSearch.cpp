@@ -7,7 +7,7 @@
 
 using namespace std;
 
-bool linearSearch(vector <int> data, int key) {
+bool linearSearch(vector<int>& data, int key) {
     int length = data.size();
 
 	for(int i = 0; i < length; i++) {
@@ -17,14 +17,14 @@ bool linearSearch(vector <int> data, int key) {
 	}
 
 	return false;
-} // end linearSearch
+}
 
 int main()
 {
 	int length, keyValue;
 
     scanf("%d%d", &length, &keyValue);
-    vector <int> data(length);
+    vector<int> data(length);
 
     for(int i = 0; i < length; i++) {
         scanf("%d", &data[i]);

@@ -18,32 +18,28 @@ void selectionSort(int *data, int length) {
         }
 
         if(minIndex ^ i) {
-           data[i] ^= data[minIndex];
-           data[minIndex] ^= data[i];
-           data[i] ^= data[minIndex];
+            swap(data[i], data[minIndex]);
         }
 	}
-} // end selectionSort function
+}
 
 int main()
 {
     int size;
 
     scanf("%d", &size);
-
-    int *data = new int(size);
+    vector<int> data(size);
 
     for(int i = 0; i < size; i++) {
         scanf("%d", &data[i]);
     }
 
-    selectionSort(data, size); // go to selectionSort function
+    selectionSort(data, size);
     
     for(int i = 0; i < size; i++) {
         printf("%d ", data[i]);
     }
     putchar('\n');
 
-    delete [] data;
 	return 0;
 }

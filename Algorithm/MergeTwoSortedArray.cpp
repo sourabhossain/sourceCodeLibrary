@@ -39,14 +39,14 @@ vector<int> mergeSortedArray(vector<int> first, vector<int> second) {
     }
 
     return merged;
-} // end mergeSortedArray function
+}
 
 int main()
 {
     vector<int> first = {4, 6, 8, 8, 10, 17, 29};
     vector<int> second = {2, 3, 5, 8, 13, 17, 31, 33};
 
-    vector<int> merged = mergeSortedArray(first, second); // go to mergeSortedArray function
+    vector<int> merged = mergeSortedArray(first, second);
     int length = merged.size();
 
     for(int i = 0; i < length; i++) {

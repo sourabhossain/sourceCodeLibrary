@@ -34,14 +34,14 @@ string bigAddition(string first, string second) {
 
 	reverse(result.begin(), result.end());
 	return result;
-} // end bigAddition function
+}
 
 int main()
 {
 	string first, second;
 
 	cin >> first >> second;
-	cout << bigAddition(first, second) << endl; // go to bigAddition function
+	cout << bigAddition(first, second) << endl;
 
 	return 0;
 }

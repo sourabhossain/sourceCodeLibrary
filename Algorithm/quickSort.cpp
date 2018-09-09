@@ -19,17 +19,17 @@ int partition(int left, int right, vector<int>& data) {
 
 	swap(data[partitionIndex], data[right]);
 	return partitionIndex;
-} // end partition function
+}
 
 void quickSort(int left, int right, vector<int>& data) {
 	if(left >= right) {
 		return;
 	}
 
-	int partitionIndex = partition(left, right, data); // go to partition function
+	int partitionIndex = partition(left, right, data);
 	quickSort(left, partitionIndex - 1, data);
 	quickSort(partitionIndex + 1, right, data);
-} // end quickSort function
+}
 
 int main()
 {
@@ -42,7 +42,7 @@ int main()
 		scanf("%d", &data[i]);
 	}
 
-	quickSort(0, n, data); // go to quickSort function
+	quickSort(0, n, data);
 
 	for(int i = 0; i < n; i++) {
 		printf("%d ", data[i]);

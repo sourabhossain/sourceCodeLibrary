@@ -8,8 +8,7 @@
 
 double square(double n) {
     if(n < 0) {
-		puts("Error! Invalid Input!");
-		exit(1);
+    	return -1;
 	}
 
 	double root = n, temp = 1;
@@ -20,15 +19,14 @@ double square(double n) {
 	}
 
 	return root;
-} // end square function
+}
 
 int main()
 {
 	double n;
     
-	printf("Input: ");
 	scanf("%lf", &n);
-	printf("Output: %lf\n", square(n)); // go to square function 
+	printf("%lf\n", square(n)); 
 
 	return 0;
 }

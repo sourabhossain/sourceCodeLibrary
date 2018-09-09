@@ -7,17 +7,22 @@
 
 using namespace std;
 
-int main()
-{
-    int n, zero = 0;
+int zeroCount(int n) {
+	int zero = 0;
 
-    scanf("%d", &n);
-
-    while(n) {
+	while(n) {
     	zero += n /= 5;
     }
+    
+    return zero;
+}
 
-    printf("%d\n", zero);
+int main()
+{
+    int n;
+
+    scanf("%d", &n);
+    printf("%d\n", zeroCount(n));
 
 	return 0;
 }

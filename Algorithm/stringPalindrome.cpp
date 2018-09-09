@@ -15,7 +15,7 @@ bool isPalindrome(char *string) {
 	}
 
 	return true;
-} // end isPalindrome function
+}
 
 int main()
 {

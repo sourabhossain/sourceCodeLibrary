@@ -30,7 +30,7 @@ void merge(int left, int mid, int right, vector<int>& data) {
 	for(int i = left, j = 0; i <= right; i++, j++) {
 		data[i] = temp[j];
 	}
-} // end merge function
+}
 
 void mergeSort(int left, int right, vector<int>& data) {
 	if(left >= right) {
@@ -42,7 +42,7 @@ void mergeSort(int left, int right, vector<int>& data) {
 	mergeSort(left, mid, data);
 	mergeSort(mid + 1, right, data);
 	merge(left, mid, right, data);
-} // end mergeSort function
+} 
 
 int main()
 {

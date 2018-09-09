@@ -5,23 +5,21 @@
 
 #include <bits/stdc++.h>
 
-void stringReverse(char *string) {
-    int length = strlen(string);
+void stringReverse(string& line) {
+    int length = line.size();
 
     for(int i = 0; i < length; i++) {
-        string[i] ^= string[--length];
-        string[length] ^= string[i];
-        string[i] ^= string[length];
+        swap(string[i], string[--length]);
     }
-} // end stringReverse function
+}
 
 int main()
 {
-    char string[1001];
+    string line;
 
-    gets(string);
-    stringReverse(string); // go to stringReverse function
-    puts(string);
+    getline(cin, line);
+    stringReverse(line);
+    cout << line << endl;
 
     return 0;
 }

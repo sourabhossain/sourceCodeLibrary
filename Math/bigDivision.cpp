@@ -26,7 +26,7 @@ string bigDivision(string n, long long d) {
     }
 
 	return (ans.size())? ans : "0";
-} // end bigDivision function
+}
 
 int main()
 {
