@@ -25,7 +25,7 @@ void nodPrime(int n) {
         }
     }
     
-    if(n > 2) {
+    if(n > 1) {
         count[n]++;
     }
     
@@ -37,14 +37,14 @@ void nodPrime(int n) {
         }
     }
     putchar('\n');
-} // end nodPrime function
+}
 
 int main()
 {
     int n;
     
     scanf("%d", &n);
-    nodPrime(n); // go to nodPrime function
+    nodPrime(n);
     
     return 0;
 }

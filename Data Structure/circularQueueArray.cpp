@@ -18,7 +18,7 @@ void enqueue(int item) {
 
     data[rear] = item;
     rear = nextRear;
-} // end enqueue function
+}  
  
 void dequeue() {
     if(front == rear) {
@@ -27,7 +27,7 @@ void dequeue() {
     }
 
     front = (front + 1) % SIZE;
-} // end dequeue function
+}  
  
 bool empty() {
     if(front == rear) {
@@ -35,7 +35,7 @@ bool empty() {
     }
     
     return false;
-} // end empty function
+}  
 
 int size() {
     if(front == rear) {
@@ -49,7 +49,7 @@ int size() {
     }
 
     return sizeCount;
-} // end size function
+}  
 
 void print() {
     if(front == rear) {
@@ -61,7 +61,7 @@ void print() {
         printf("%d ", data[i]);
     }
     putchar('\n');
-} // end print function
+}  
 
 int main()
 {

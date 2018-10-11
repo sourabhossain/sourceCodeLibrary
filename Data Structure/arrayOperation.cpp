@@ -19,7 +19,7 @@ void pushFront(int item) {
     }
 
     data[0] = item;
-} // end pushFront function
+} 
 
 void popFront() {
     if(top == 0) {
@@ -32,7 +32,7 @@ void popFront() {
     }
 
     --top;
-} // end popFront function
+} 
 
 void pushBack(int item) {
     if(top == SIZE) {
@@ -41,7 +41,7 @@ void pushBack(int item) {
     }
 
     data[top++] = item;
-} // end pushBack function
+} 
 
 void popBack() {
     if(top == 0) {
@@ -50,7 +50,7 @@ void popBack() {
     }
 
     --top;
-} // end popBack function
+}  
 
 void insert(int item, int position) {
     if(position < 1 || position - 1 > top) {
@@ -68,7 +68,7 @@ void insert(int item, int position) {
     }
 
     data[position - 1] = item;
-} // end insert function
+}  
 
 void erase(int item) {
     if(top == 0) {
@@ -86,21 +86,21 @@ void erase(int item) {
             return;
         }
     }
-} // end erase function
+}  
 
 void swap(int *a, int *b) {
     *a ^= *b;
     *b ^= *a;
     *a ^= *b;
-} // end swap function
+} 
 
 void sort() {
     for(int i = 1; i < top; i++) {
         for(int j = i; data[j - 1] > data[j] && j > 0; j--) {
-            swap(&data[j-1], &data[j]); // go to swap function
+            swap(&data[j-1], &data[j]);  
         }
     }
-} // end sort function
+}  
 
 bool empty() {
     if(top == 0) {
@@ -108,11 +108,11 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+}  
 
 int size() {
     return top;
-} // end size function
+}  
 
 void print() {
     if(top == 0) {
@@ -124,7 +124,7 @@ void print() {
         printf("%d ", data[i]);
     }
     putchar('\n');
-} // end print function
+} 
 
 int main()
 {

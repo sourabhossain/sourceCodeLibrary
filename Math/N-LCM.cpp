@@ -15,7 +15,7 @@ int gcd(int first, int second) {
 	}
 
 	return first;
-} // end gcd function
+} 
 
 int n_lcm(int *data, int size) {
 	int LCM = data[0];
@@ -25,7 +25,7 @@ int n_lcm(int *data, int size) {
 	}
 
 	return LCM;
-} // end n_lcm function
+}  
 
 int main()
 {

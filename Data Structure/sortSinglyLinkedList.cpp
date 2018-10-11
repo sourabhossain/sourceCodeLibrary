@@ -24,10 +24,10 @@ Node* get(int item) {
     node->next = NULL;
 
     return node;
-} // end get function
+}  
 
 void insert(int item) {
-    Node *node = get(item); // go to get function
+    Node *node = get(item);  
     
     if(head == NULL || node->value < head->value) {
         node->next = head;
@@ -43,7 +43,7 @@ void insert(int item) {
         previous->next = node;
         node->next = current;
     }
-} // end insert function
+}  
 
 void erase(int item) {
     if(head == NULL) {
@@ -66,7 +66,7 @@ void erase(int item) {
             return;
         }
     }
-} // end erase function
+}  
 
 void popFront() {
     if(head == NULL) {
@@ -77,7 +77,7 @@ void popFront() {
     Node *node = head->next;
     delete [] head;
     head = node;
-} // end popFront function
+}  
 
 void popBack() {
     if(head == NULL) {
@@ -99,7 +99,7 @@ void popBack() {
         previous->next = NULL;
         delete [] current;
     }
-} // end popBack function
+}  
 
 void reverse() {
     if(head == NULL) {
@@ -116,7 +116,7 @@ void reverse() {
     }
 
     head = reverseNode;
-} // end reverse function
+}  
 
 bool search(int item) {
     if(head == NULL) {
@@ -130,7 +130,7 @@ bool search(int item) {
     }
 
     return false;
-} // end search function
+}  
 
 int size() {
     if(head == NULL) {
@@ -144,7 +144,7 @@ int size() {
     }
 
     return nodeCount;
-} // end size function
+}  
 
 bool empty() {
     if(head == NULL) {
@@ -152,7 +152,7 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+}  
 
 void print() {
     if(head == NULL) {
@@ -164,13 +164,13 @@ void print() {
         printf("%d ", iterator->value);
     }
     putchar('\n');
-} // end print function
+}  
 
 void clear() {
     for(Node *iterator = head; iterator != NULL; iterator = iterator->next) {
         delete [] iterator;
     }
-} // end clear function
+}  
 
 int main()
 {

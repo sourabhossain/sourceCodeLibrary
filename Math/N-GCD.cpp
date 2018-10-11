@@ -15,17 +15,17 @@ int gcd(int first, int second) {
     }
     
     return first;
-} // end gcd function
+}  
 
 int n_gcd(int *data, int size) {
 	int i, GCD = data[0];
 
 	for(i = 1; i < size; i++) {
-		GCD = gcd(GCD, data[i]); // go to gcd function
+		GCD = gcd(GCD, data[i]);  
 	}
 
 	return GCD;
-} // end n_gcd function
+}  
 
 int main()
 {

@@ -24,7 +24,7 @@ int power(int n, int p) {
     }
 
     return temp;
-} // end power function
+}  
 
 int main()
 {

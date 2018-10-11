@@ -54,15 +54,14 @@ string numberToRomanNumber(int number) {
     }
 
     return roman;
-} // end numberToRomanNumber function
+}
 
 int main()
 {
     int number;
     
-    printf("Input: ");
     scanf("%d", &number);
-    printf("Output: %s\n", numberToRomanNumber(number).c_str());
+    printf("%s\n", numberToRomanNumber(number).c_str());
 
     return 0;
 }

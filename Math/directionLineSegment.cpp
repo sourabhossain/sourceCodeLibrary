@@ -14,11 +14,11 @@ pair<double, double> subtract(pair<double, double> a, pair<double, double> b) {
 	result.second = a.second - b.second;
 
 	return result;
-} // end subtract function
+}  
 
 int getDirection(pair<double, double> a, pair<double, double> b, pair<double, double> p) {
-	b = subtract(b, a); // go to subtract function
-	p = subtract(p, a); // go to subtract function
+	b = subtract(b, a);  
+	p = subtract(p, a); 
 
 	double crossProduct = (b.first * p.second) - (b.second * p.first);
 
@@ -29,7 +29,7 @@ int getDirection(pair<double, double> a, pair<double, double> b, pair<double, do
 	} else {
 		return 0;
 	}
-} // end getDirection function
+}  
 
 int main()
 {

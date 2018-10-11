@@ -26,7 +26,7 @@ void smallestFactorGenerator() {
             }
         }
     }
-} // end smallestFactorGenerator function
+}  
 
 void nodNumber(int n) {
     map <int, int> nod;
@@ -44,16 +44,16 @@ void nodNumber(int n) {
         }
     }
     putchar('\n');
-} // end nodNumber function
+}  
 
 int main()
 {
     int n;
-    smallestFactorGenerator(); // go to smallestFactorGenerator function
+    smallestFactorGenerator();  
 
     while(scanf("%d", &n) != EOF) {
         printf("%d = ", n);
-        nodNumber(n); // go to nodNumber function
+        nodNumber(n);  
     }
 
     return 0;

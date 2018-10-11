@@ -14,7 +14,7 @@ int reverseNumber(int data) {
     }
 
     return reverse;
-} // end reverseNumber function
+}  
 
 int main() {
     

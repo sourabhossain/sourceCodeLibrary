@@ -66,6 +66,10 @@ string bigSubtraction(string first, string second) {
 		carry = 0;
 	}
 
+	while(result.size() > 1 && result.back() == '0') {
+        result.pop_back();
+    }
+
 	reverse(result.begin(), result.end());
 	return result;
 }

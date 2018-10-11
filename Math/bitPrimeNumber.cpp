@@ -6,10 +6,10 @@
 #include <bits/stdc++.h>
 #define SIZE 100000002
 
-int prime[SIZE/64 + 2];
+int prime[(SIZE >> 6) + 2];
 
-#define CHECK(n) (prime[n / 64] & (1 << ((n % 64) / 2)))
-#define SET(n) (prime[n / 64] |= (1 << ((n % 64) / 2)))
+#define CHECK(n) (prime[n >> 6] & (1 << ((n % 64) >> 1)))
+#define SET(n) (prime[n >> 6] |= (1 << ((n % 64) >> 1)))
 
 void sieve() {
 	int root = sqrt(SIZE);
@@ -21,15 +21,15 @@ void sieve() {
 			}
 		}
 	}
-} // end sieve function
+}
 
 bool isPrime(int n) {
 	return n > 1 && (n == 2 || ((n & 1) && !CHECK(n)));
-} // end isPrime function
+}
 
 int main()
 {
-	sieve(); // go to sieve function
+	sieve();
 	int T, n;
 
 	scanf("%d", &T);

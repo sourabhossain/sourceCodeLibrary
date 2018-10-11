@@ -16,11 +16,11 @@ void Divisors() {
 			divisors[j].push_back(i);
 		}
 	}
-} // end divisors function
+}  
 
 int main()
 {
-	Divisors(); // go to divisors function
+	Divisors();  
     int n;
 
     scanf("%d", &n); 

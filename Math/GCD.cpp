@@ -15,7 +15,7 @@ int gcd(int first, int second) {
 	}
 
 	return first;
-} // end gcd function
+} 
 
 int main()
 {

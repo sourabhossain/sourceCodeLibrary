@@ -16,7 +16,7 @@ void resize() {
 
     delete [] data;
     data = newArray;
-} // end resize function
+}  
 
 void free() {
     int *newArray = new int[top - 1];
@@ -27,18 +27,18 @@ void free() {
 
     delete [] data;
     data = newArray;
-} // end free function
+}  
 
 void push(int value) {
-    resize(); // go to resize function
+    resize();  
     data[top] = value;
     top += 1;
-} // end push function
+}  
 
 void pop() {
-    free(); // go to free function
+    free();  
     top -= 1;
-} // end pop function
+}  
 
 int size() {
     if(top == 0) {
@@ -46,7 +46,7 @@ int size() {
     }
 
     return top;
-} // end size function
+}  
 
 bool empty() {
     if(top == 0) {
@@ -54,7 +54,7 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+}  
 
 void print() {
     if(top == 0) {
@@ -66,7 +66,7 @@ void print() {
         printf("%d ", data[i]);
     }
     putchar('\n');
-} // end print function
+}  
 
 int main()
 {

@@ -8,7 +8,7 @@
 using namespace std;
 
 void merge(int left, int mid, int right, vector<int>& data) {
-	vector<int> temp;
+	list<int> temp;
 	int firstIndex = left, secondIndex = mid + 1;
 
 	while(firstIndex <= mid && secondIndex <= right) {
@@ -27,21 +27,20 @@ void merge(int left, int mid, int right, vector<int>& data) {
 		temp.push_back(data[secondIndex++]);
 	}
 
-	for(int i = left, j = 0; i <= right; i++, j++) {
-		data[i] = temp[j];
+	for(int i = left; i <= right; i++) {
+		data[i] = temp.front();
+		temp.pop_front();
 	}
 }
 
 void mergeSort(int left, int right, vector<int>& data) {
-	if(left >= right) {
-		return;
+	if(left < right) {
+		int mid = left + (right - left) / 2;
+		 
+		mergeSort(left, mid, data);
+		mergeSort(mid + 1, right, data);
+		merge(left, mid, right, data);
 	}
-
-	int mid = left + (right - left) / 2;
-
-	mergeSort(left, mid, data);
-	mergeSort(mid + 1, right, data);
-	merge(left, mid, right, data);
 } 
 
 int main()

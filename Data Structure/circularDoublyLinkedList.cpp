@@ -26,10 +26,10 @@ Node* get(int item) {
     node->next = node;
     
     return node;
-} // end get function
+} 
 
 void pushFront(int value) {
-    Node *node = get(value); // go to get function
+    Node *node = get(value); 
     
     if(head == NULL) {
         head = node;
@@ -41,7 +41,7 @@ void pushFront(int value) {
         tail->next = node;
         head = node;
     }
-} // end pushFront function
+} 
 
 void popFront() {
     if(head == NULL) {
@@ -62,7 +62,7 @@ void popFront() {
 
         delete [] node;
     }
-} // end popFront function
+} 
 
 void pushBack(int value) {
     Node *node = get(value);
@@ -77,7 +77,7 @@ void pushBack(int value) {
         tail = node;
         head->previous = tail;
     }
-} // end pushBack function
+}  
 
 void popBack() {
     if(tail == NULL) {
@@ -99,7 +99,7 @@ void popBack() {
 
         delete [] node;
     }
-} // end popBack function
+}  
 
 void insert(int key, int item) {
     if(head == NULL) {
@@ -107,31 +107,31 @@ void insert(int key, int item) {
         return;
     }
     
-    Node *currentNode = head, *previousNode = NULL;
+    Node *current = head, *previous = NULL;
     
     do {
-        if(currentNode->value == key) {
-            if(previousNode == NULL) {
-                pushFront(item); // go to pushFront
+        if(current->value == key) {
+            if(previous == NULL) {
+                pushFront(item);  
             } else {
-                Node *newNode = get(item); // go to get function
+                Node *newNode = get(item);  
                 
-                previousNode->next = newNode;
-                newNode->next = currentNode;
-                newNode->previous = previousNode;
-                currentNode->previous = newNode;
+                previous->next = newNode;
+                newNode->next = current;
+                newNode->previous = previous;
+                current->previous = newNode;
             }
             
             return;
         }
         
-        previousNode = currentNode;
-        currentNode = currentNode->next;
+        previous = current;
+        current = current->next;
     }
-    while(currentNode != head);
+    while(current != head);
     
-    pushBack(item); // go to pushBack function
-} // end insert function
+    pushBack(item);  
+}  
 
 void erase(int item) {
     if(head == NULL) {
@@ -139,34 +139,34 @@ void erase(int item) {
         return;
     }
     
-    Node *currentNode = head, *previousNode = NULL;
+    Node *current = head, *previous = NULL;
     
     do {
-        if(currentNode->value == item) {
-            if(previousNode == NULL) {
-                popFront(); // go to popFront function
-            } else if(currentNode == tail) {
-                popBack(); // go to popBack function
+        if(current->value == item) {
+            if(previous == NULL) {
+                popFront();  
+            } else if(current == tail) {
+                popBack();  
             } else {
-                currentNode->previous->next = currentNode->next;
-                currentNode->next->previous = currentNode->previous;
-                delete [] currentNode;
+                current->previous->next = current->next;
+                current->next->previous = current->previous;
+                delete [] current;
             }
             
             return;
         }
         
-        previousNode = currentNode;
-        currentNode = currentNode->next;
+        previous = current;
+        current = current->next;
     }
-    while(currentNode != head);
-} // end erase function
+    while(current != head);
+}  
 
 void swap(int *a, int *b) {
     *a ^= *b;
     *b ^= *a;
     *a ^= *b;
-} // end swap function
+}  
 
 void sort() {
     if(head == NULL) {
@@ -181,7 +181,7 @@ void sort() {
         
         do {
             if(outerLoop->value < innerLoop->value) {
-                swap(&outerLoop->value, &innerLoop->value); // go to swap function
+                swap(&outerLoop->value, &innerLoop->value);  
             }
             
             innerLoop = innerLoop->next;
@@ -191,7 +191,7 @@ void sort() {
         outerLoop = outerLoop->next;
     }
     while(outerLoop != head);
-} // end sort function
+}  
 
 bool search(int value) {
     if(head == NULL) {
@@ -210,7 +210,7 @@ bool search(int value) {
     while(searchNode != head);
     
     return false;
-} // end search function
+}  
 
 int count(int item) {
     if(head == NULL) {
@@ -230,7 +230,7 @@ int count(int item) {
     while(countNode != head);
     
     return countValue;
-} // end count function
+}  
 
 int size() {
     if(head == NULL) {
@@ -247,7 +247,7 @@ int size() {
     while(sizeNode != head);
     
     return nodeCount;
-} // end size function
+}  
 
 bool empty() {
     if(head == NULL || tail == NULL) {
@@ -255,7 +255,7 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+}  
 
 void printFront() {
     if(head == NULL) {
@@ -271,7 +271,7 @@ void printFront() {
     }
     while(printNode != head);
     putchar('\n');
-} // end printFront function
+} 
 
 void printBack() {
     if(tail == NULL) {
@@ -287,7 +287,7 @@ void printBack() {
     }
     while(printNode != tail);
     putchar('\n');
-} // end printBack function
+}  
 
 int main()
 {

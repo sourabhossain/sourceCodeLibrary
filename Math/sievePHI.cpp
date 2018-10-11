@@ -27,7 +27,7 @@ void sievePHI() {
             }
         }
     }
-} // end sievePHI function
+}  
 
 int main()
 {

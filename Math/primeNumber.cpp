@@ -18,7 +18,7 @@ void sieve() {
             }
         }
 	}
-} // end sieve function
+}  
 
 bool isPrime(int n) {
 	if(n < 2) {
@@ -34,11 +34,11 @@ bool isPrime(int n) {
 	}
 
 	return false;
-} // end isPrime function
+}  
 
 int main()
 {
-	sieve(); // go to sieve function
+	sieve();  
 	int T, n;
 
 	scanf("%d", &T);

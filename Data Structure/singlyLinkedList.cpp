@@ -14,7 +14,6 @@ struct Node {
 
 Node *head = NULL;
 
-// all function prototype 
 Node *get(int);
 void pushFront(int);
 void popFront();
@@ -27,6 +26,8 @@ int count(int);
 int size();
 bool empty();
 void reverse();
+void reverse(Node*);
+void reverse_print(Node*);
 void sort();
 void print();
 void clear();
@@ -59,9 +60,15 @@ int main()
     cout << size() << endl;
     cout << search(100) << endl;
 
-	//print();
+	print();
+    putchar('\n');
+
+    reverse_print(head);
+    putchar('\n');
 
 	clear();
+
+    delete [] head;
 	return 0;
 }
 
@@ -77,13 +84,13 @@ Node *get(int item) {
     node->next = NULL;
 
     return node;
-} // end get function
+}
 
 void pushFront(int value) {
-    Node *node = get(value); // go to get function
+    Node *node = get(value);  
     node->next = head;
     head = node;
-} // end pushFront function
+}  
 
 void popFront() {
     if(head == NULL) {
@@ -94,10 +101,10 @@ void popFront() {
     Node *node = head->next;
     delete [] head;
     head = node;
-} // end popFront function
+}  
 
 void pushBack(int value) {
-    Node *node = get(value); // go to get function
+    Node *node = get(value);  
 
     if(head == NULL) {
         head = node;
@@ -110,7 +117,7 @@ void pushBack(int value) {
 
         iterator->next = node;
     }
-} // end pushBack function
+}  
 
 void popBack() {
     if(head == NULL) {
@@ -133,7 +140,30 @@ void popBack() {
         delete [] iterator;
         iterator = previous;
     }
-} // end popBack function
+}  
+
+/**
+
+void insert(int item, int position) {
+    Node *iterator = head, *previous = NULL;
+
+    while(iterator != NULL && --position) {
+        previous = iterator;
+        iterator = iterator->next;
+    }
+
+    if(previous == NULL) {
+        pushFront(item);  
+    } else {
+        Node *node = get(item);  
+
+        node->next = iterator;
+        previous->next = node;
+        previous = node;
+    }
+}  
+
+**/
 
 void insert(int key, int item) {
     if(head == NULL) {
@@ -144,9 +174,9 @@ void insert(int key, int item) {
     for(Node *iterator = head, *previous = NULL; iterator != NULL; iterator = iterator->next) {
         if(iterator->value == key) {
             if(previous == NULL) {
-                pushFront(item); // go to pushFront function
+                pushFront(item);  
             } else {
-                previous->next = get(item); // go to get function
+                previous->next = get(item); 
                 previous->next->next = iterator;
                 iterator = previous;
             }
@@ -156,8 +186,38 @@ void insert(int key, int item) {
         previous = iterator;
     }
 
-    pushBack(item); // go to pushBack function
-} // end insert function
+    pushBack(item);  
+} 
+
+/**
+
+void erase(int index) {
+    if(node == NULL) {
+        return;
+    }
+
+    Node *node = head;
+
+    if(index == 1) {
+        head = node->next;
+        delete [] node;
+        return;
+    }
+
+    for(int i = 2; i < index; i++) {
+        if(node->next == NULL) {
+            return;
+        }
+
+        node = node->next;
+    }
+
+    Node *temp = node->next;
+    node->next = temp->next;
+    delete [] temp;
+}
+
+**/
 
 void erase(int item) {
     if(head == NULL) {
@@ -168,7 +228,7 @@ void erase(int item) {
     for(Node *iterator = head, *previous = NULL; iterator != NULL; iterator = iterator->next) {
         if(iterator->value == item) {
             if(previous == NULL) {
-                popFront(); // go to popFront function
+                popFront();  
             } else {
                 previous->next = iterator->next;
                 delete [] iterator;
@@ -179,7 +239,7 @@ void erase(int item) {
 
         previous = iterator;
     }
-} // end erase function
+}  
 
 bool search(int item) {
     if(head == NULL) {
@@ -193,7 +253,7 @@ bool search(int item) {
     }
 
     return false;
-} // end search function
+}  
 
 int count(int item) {
     if(head == NULL) {
@@ -209,7 +269,7 @@ int count(int item) {
     }
 
     return counter;
-} // end count function
+}  
 
 int size() {
     if(head == NULL) {
@@ -223,7 +283,7 @@ int size() {
     }
 
     return counter;
-} // end size function
+}  
 
 bool empty() {
     if(head == NULL) {
@@ -231,7 +291,7 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+}  
 
 void reverse() {
     if(head == NULL) {
@@ -240,23 +300,44 @@ void reverse() {
     }
 
     Node *current = head;
-    Node *prev = NULL, *next = NULL;
+    Node *previous = NULL, *next = NULL;
 
     while(current != NULL) {
         next = current->next;
-        current->next = prev;
-        prev = current;
+        current->next = previous;
+        previous = current;
         current = next;
     }
 
-    head = prev;
-} // end reverse function
+    head = previous;
+} 
+
+void reverse(Node *node) {
+    if(node->next == NULL) {
+        head = node;
+        return;
+    }
+
+    reverse(node->next);
+    Node *temp = node->next;
+    temp->next = node;
+    node->next = NULL;
+} 
+
+void reverse_print(Node* node) {
+    if(node == NULL) {
+        return;
+    }
+
+    reverse_print(node->next);
+    printf("%d ", node->value);
+}
 
 void swap(int *first, int *second) {
     *first ^= *second;
     *second ^= *first;
     *first ^= *second;
-} // end swap function
+}  
 
 void sort() {
 	if(head == NULL) {
@@ -271,7 +352,26 @@ void sort() {
             }
         }
     }
-} // end sort function
+}  
+
+void removeDuplicates() {
+    if(head == NULL) {
+        return;
+    }
+
+    sort();
+    Node *current = head, *next_next;
+
+    while(current->next != NULL) {
+        if(current->value == current->next->value) {
+            next_next = current->next->next;
+            delete [] current->next;
+            current->next = next_next;
+        } else {
+            current = current->next;
+        }
+    }
+}
 
 void print() {
 	if(head == NULL) {
@@ -282,10 +382,16 @@ void print() {
         printf("%d ", iterator->value);
     }
     putchar('\n');
-} // end print function
+} 
 
 void clear() {
-    for(Node *iterator = head; iterator != NULL; iterator = iterator->next) {
-        delete [] iterator;
+    Node *temp;
+
+    while(head) {
+        temp = head;
+        head = head->next;
+        delete [] temp;
     }
-} // end clear function
+
+    head = NULL;
+}  

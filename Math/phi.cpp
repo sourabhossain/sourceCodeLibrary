@@ -25,7 +25,7 @@ int phi(int n) {
 	}
 
 	return total;
-} // end phi function
+}  
 
 int main()
 {

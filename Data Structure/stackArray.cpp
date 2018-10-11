@@ -18,7 +18,7 @@ void resize() {
 
     delete [] data;
     data = newArray;
-} // end resize function
+}  
 
 void free() {
     int *newArray = new int[top];
@@ -29,25 +29,25 @@ void free() {
 
     delete [] data;
     data = newArray;
-} // end free function
+}  
 
 void push(int value) {
-    resize(); // go to resize function
+    resize();  
     data[top++] = value;
-} // end push function
+}  
 
 void pop() {
     if(top == 0) {
         puts("Stack is empty");
     } else {
-        free(); // go to free function
+        free();  
         --top;
     }
-} // end pop function
+}  
 
 int size() {
     return top;
-} // end size function
+}  
 
 bool empty() {
     if(top == 0) {
@@ -55,7 +55,7 @@ bool empty() {
     }
 
     return false;
-} // end empty function
+} 
 
 void print() {
     if(top == 0) {
@@ -67,7 +67,7 @@ void print() {
         }
         putchar('\n');
     }
-} // end print function
+}  
 
 int main()
 {

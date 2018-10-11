@@ -7,33 +7,27 @@
 
 using namespace std;
 
-int power(int n, int p) {
-    string binary = "";
-
-    while(p) {
-    	(p & 1)? binary += "1" : binary += "0";
-    	p >>= 1;
-    }	
-    
+int power(int b, int p) {
     int result = 1;
+    
+    while(p) {
+        if(p & 1) {
+            result *= b;
+        }
 
-    for(int i = binary.size() - 1; i >= 0; i--) {
-    	result *= result;
-
-    	if(binary[i] == '1') {
-    		result *= n;
-    	}
+        p >>= 1;
+        b *= b;
     }
 
     return result;
-} // end power function
+}
 
 int main()
 {
-	int n, p;
+	int b, p;
 
-	scanf("%d%d", &n, &p);
-	printf("%d\n", power(n, p));
+	scanf("%d%d", &b, &p);
+	printf("%d\n", power(b, p));
 
 	return 0;
 }

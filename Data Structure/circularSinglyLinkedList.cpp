@@ -24,10 +24,10 @@ Node* get(int item) {
     node->next = node;
     
     return node;
-} // end get function 
+}  
 
 void pushFront(int item) {
-    Node *node = get(item); // go to get function 
+    Node *node = get(item);  
     
     if(head == NULL) {
         head = node;
@@ -37,7 +37,7 @@ void pushFront(int item) {
         tail->next = node;
         head = node;
     }
-} // end pushFront function 
+}   
 
 void popFront() {
     if(head == NULL) {
@@ -55,10 +55,10 @@ void popFront() {
         head = currentNode;
         tail->next = head;
     }
-} // end popFront function 
+}   
 
 void pushBack(int item) {
-    Node *node = get(item); // go to get function
+    Node *node = get(item);  
     
     if(tail == NULL) {
         head = node;
@@ -68,7 +68,7 @@ void pushBack(int item) {
         node->next = head;
         tail = node;
     }
-} // end pushBack function
+}  
 
 void popBack() {
     if(tail == NULL) {
@@ -92,7 +92,7 @@ void popBack() {
         tail = perviousNode;
         delete [] currentNode;
     }
-} // end popBack function
+}  
 
 void insert(int key, int item) {
     if(head == NULL || tail == NULL) {
@@ -105,9 +105,9 @@ void insert(int key, int item) {
     do {
         if(currentNode->value == key) {
             if(perviousNode == NULL) {
-                pushFront(item); // go to pushFront function
+                pushFront(item);  
             } else {
-                Node *newNode = get(item); // go to get function
+                Node *newNode = get(item);  
                 newNode->next = currentNode;
                 perviousNode->next = newNode;
             }
@@ -119,8 +119,8 @@ void insert(int key, int item) {
     }
     while(currentNode != head);
     
-    pushBack(item); // go to pushBack function
-} // end insert function
+    pushBack(item);  
+}  
 
 void erase(int item) {
     if(head == NULL || tail == NULL) {
@@ -133,7 +133,7 @@ void erase(int item) {
     do {
         if(currentNode->value == item) {
             if(perviousNode == NULL) {
-                popFront(); // go to popFront function
+                popFront();  
             } else if(currentNode == tail) {
                 popBack();
             } else {
@@ -147,7 +147,7 @@ void erase(int item) {
         currentNode = currentNode->next;
     }
     while(currentNode != head);
-} // end erase function
+}  
 
 bool empty() {
     if(head == NULL || tail == NULL) {
@@ -155,13 +155,13 @@ bool empty() {
     } 
 
     return false;
-} // end empty function
+}  
 
 void swap(int *a, int *b) {
     *a ^= *b;
     *b ^= *a;
     *a ^= *b;
-} // end swap function
+}  
 
 void sort() {
     if(head == NULL) {
@@ -176,7 +176,7 @@ void sort() {
         
         do {
             if(outerLoop->value < innerLoop->value) {
-                swap(&outerLoop->value, &innerLoop->value); // go to swap function
+                swap(&outerLoop->value, &innerLoop->value);  
             }
             
             innerLoop = innerLoop->next;
@@ -186,7 +186,7 @@ void sort() {
         outerLoop = outerLoop->next;
     }
     while(outerLoop != head);
-} // end sawp function
+}  
 
 bool search(int value) {
     if(head == NULL || tail == NULL) {
@@ -205,7 +205,7 @@ bool search(int value) {
     while(searchNode != head);
     
     return false;
-} // end search function
+}  
 
 int size() {
     if(head == NULL || tail == NULL) {
@@ -222,7 +222,7 @@ int size() {
     while(sizeNode != head);
     
     return nodeCount;
-} // end size function
+}  
 
 int count(int value) {
     if(head == NULL || tail == NULL) {
@@ -238,11 +238,10 @@ int count(int value) {
         }
         
         countNode = countNode->next;
-    }
-    while(countNode != head);
+    } while(countNode != head);
     
     return countValue;
-} // end count function
+}  
 
 void print() {
     if(head == NULL || tail == NULL) {
@@ -258,7 +257,7 @@ void print() {
     }
     while(printNode != head);
     putchar('\n');
-} // end print function
+} 
 
 int main()
 {
@@ -278,6 +277,5 @@ int main()
 
     delete [] head;
     delete [] tail;
-       
     return 0;
 }
