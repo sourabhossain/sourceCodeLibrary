@@ -12,8 +12,7 @@ int partition(int left, int right, vector<int>& data) {
 
 	for(int i = left; i < right; i++) {
 		if(data[i] < pivot) {
-			swap(data[partitionIndex], data[i]);
-			partitionIndex++;
+			swap(data[partitionIndex++], data[i]);
 		}
 	}
 
@@ -22,13 +21,11 @@ int partition(int left, int right, vector<int>& data) {
 }
 
 void quickSort(int left, int right, vector<int>& data) {
-	if(left >= right) {
-		return;
+	if(left < right) {
+		int partitionIndex = partition(left, right, data);
+		quickSort(left, partitionIndex - 1, data);
+		quickSort(partitionIndex + 1, right, data);
 	}
-
-	int partitionIndex = partition(left, right, data);
-	quickSort(left, partitionIndex - 1, data);
-	quickSort(partitionIndex + 1, right, data);
 }
 
 int main()

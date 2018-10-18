@@ -7,16 +7,12 @@
 
 using namespace std;
 
-long long nCr(int n, int r) {
-	if(r > n / 2) {
-		r = n - r;
-	}
-
+unsigned long long nCr(int n, int r) {
 	int ans = 1;
+	r = min(r, n - r);
 
 	for(int i = 1; i <= r; i++) {
-		ans *= n - r + i;
-		ans /= i;
+		ans = (ans * n--) / i;
 	}
 
 	return ans;
