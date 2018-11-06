@@ -1,33 +1,33 @@
 /**
  *  Name: Big Power Mod
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourav Hossain 
  */
 
 #include <bits/stdc++.h>
 
 using namespace std;
 
-int bigMod(int n, int p, int m) {
-	if(p == 0) {
-		return 1 % m;
-	}
+int bigMod(int b, int p, int m) {
+    int result = 1;
+    
+    while(p) {
+    	if(p & 1) {
+    		result = ((result % m) * (b % m)) % m;
+    	}
 
-	int mod = bigMod(n, p / 2, m);
-	mod = ((mod % m) * (mod % m)) % m;
+    	p >>= 1;
+    	b = ((b % m) * (b % m)) % m;
+    }
 
-	if(p & 1) {
-		mod = ((n % m) * (mod % m)) % m;
-	}
-
-	return mod;
+    return result;	
 }
 
 int main()
 {
-	int n, p, m;
+	int b, p, m;
 
-	scanf("%d%d%d", &n, &p, &m);
-	printf("%d\n", bigMod(n, p, m));
+	cin >> b >> p >> m;
+	cout << bigMod(b, p, m) << endl;
 
 	return 0;
 }

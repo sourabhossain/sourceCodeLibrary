@@ -116,16 +116,34 @@ Node *erase(Node *node, int item) {
     }
 }
 
-bool isBST(Node* node, int left = INT_MIN, int right = INT_MAX) {
+bool isBST(Node* node) {
     if(node == NULL) {
         return true;
     }
 
-    if(node->data >= right || left >= node->data) {
-        return false;
+    stack<Node*> s;
+    int previous = INT_MIN;
+    bool has_previous = false;
+
+    while(node != NULL || !s.empty()) {
+        if(node != NULL) {
+            s.push(node);
+            node = node->left;
+        } else {
+            node = s.top();
+            s.pop();
+
+            if(has_previous && node->data <= previous) {
+                return false;
+            }
+
+            previous = node->data;
+            has_previous = true;
+            node = node->right;
+        }
     }
 
-    return isBST(node->left, left, node->data) && isBST(node->right, node->data, right);
+    return true;
 }
 
 bool search(Node *node, int item) {
