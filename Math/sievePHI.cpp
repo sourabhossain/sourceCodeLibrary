@@ -4,7 +4,7 @@
  */
 
 #include <bits/stdc++.h>
-#define SIZE 1000000001
+#define SIZE 10000001
 
 using namespace std;
 
@@ -17,7 +17,7 @@ void sievePHI() {
         if(phi[i] == 0) {
             phi[i] = i - 1;
 
-            for(int j = i * 2; j < SIZE; j += i) {
+            for(int j = i << 1; j < SIZE; j += i) {
                 if(phi[j] == 0) {
                     phi[j] = j;
                 }
@@ -27,7 +27,7 @@ void sievePHI() {
             }
         }
     }
-}  
+}
 
 int main()
 {

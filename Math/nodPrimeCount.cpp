@@ -4,7 +4,6 @@
  */
 
 #include <bits/stdc++.h>
-#define SIZE 100001
  
 using namespace std;
 

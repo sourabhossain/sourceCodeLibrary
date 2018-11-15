@@ -7,26 +7,22 @@
 
 using namespace std;
 
-unsigned long long catalanNumber(int n) {
-	if(n < 2) {
-		return 1;
+unsigned long long catalan(int n) {
+	unsigned long long c = 1;
+
+	for(int i = 2; i <= n; i++) {
+		c = (2 * (2 * i - 1) * c) / (i + 1);
 	}
 
-	unsigned long long result = 0;
-
-	for(int i = 0; i < n; i++) {
-		result += catalanNumber(i) * catalanNumber(n - i - 1);
-	}
-
-	return result;
+	return c;
 }
 
 int main()
 {
-	int n;
+	for(int i = 0; i <= 15; i++) {
+		cout << catalan(i) << " ";
+	}
+	cout << endl;
 
-	cin >> n;
-	cout << catalanNumber(n) << endl;
-	
 	return 0;
 }
