@@ -1,60 +1,43 @@
 /**
- * Name: N-Number NOD Number
+ * Name: NOD Number
  * Author Name: Sourav Hossain
  */
 
 #include <bits/stdc++.h>
-#define SIZE 10001
 
 using namespace std;
 
-vector <int> smallestFactor(SIZE);
+void nod(int n) {
+    int root = sqrt(n);
+    set<int> s;
 
-void smallestFactorGenerator() {
-    for(int i = 2; i < SIZE; i += 2) {
-        smallestFactor[i] = 2;
-    }
+    s.insert(1);
+    s.insert(n);
 
-    for(int i = 3; i < SIZE; i += 2) {
-        if(!smallestFactor[i]) {
-            smallestFactor[i] = i;
-
-            for(int j = i * i; j < SIZE; j += i << 1) {
-                if(!smallestFactor[j]) {
-                    smallestFactor[j] = i;
-                }
-            }
+    for(int i = 2; i <= root; i++) {
+        if(n % i == 0) {
+            s.insert(i);
+            s.insert(n / i);
         }
     }
-}  
 
-void nodNumber(int n) {
-    map <int, int> nod;
+    for(set<int>::iterator it = s.begin(); it != s.end();) {
+        cout << *it;
 
-    while(n > 1) {
-        nod[smallestFactor[n]]++;
-        n /= smallestFactor[n]; 
-    }
-
-    for(map <int, int>::iterator it = nod.begin(); it != nod.end();) {
-        printf("%d^%d", it->first, it->second);
-
-        if(++it != nod.end()) {
-            printf(" + ");
+        if(++it != s.end()) {
+            putchar(' ');
         }
     }
     putchar('\n');
-}  
+}
 
 int main()
 {
     int n;
-    smallestFactorGenerator();  
 
-    while(scanf("%d", &n) != EOF) {
-        printf("%d = ", n);
-        nodNumber(n);  
-    }
+    scanf("%d", &n);
+    cout << n << " = ";
+    nod(n);
 
     return 0;
 }

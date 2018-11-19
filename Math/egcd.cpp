@@ -7,6 +7,23 @@
 
 using namespace std;
 
+/** 
+
+#define pii pair<int, int>
+#define x first
+#define y second
+
+pii egcd(long long a, long long b) {
+	if(b == 0) {
+		return pii(1, 0);
+	}
+
+	pii d = egcd(b, a % b);
+	return pii(d.y, d.x - d.y * (a / b));
+}
+
+*/
+
 long long egcd(long long a, long long b, long long& x, long long& y) {
 	if(b == 0) {
 		x = 1;

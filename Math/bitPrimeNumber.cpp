@@ -6,10 +6,12 @@
 #include <bits/stdc++.h>
 #define SIZE 100000002
 
+using namespace std;
+
 int prime[(SIZE >> 6) + 2];
 
-#define CHECK(n) (prime[n >> 6] & (1 << ((n % 64) >> 1)))
-#define SET(n) (prime[n >> 6] |= (1 << ((n % 64) >> 1)))
+#define CHECK(n) (prime[n >> 6] & (1 << ((n & 63) >> 1)))
+#define SET(n) (prime[n >> 6] |= (1 << ((n & 63) >> 1)))
 
 void sieve() {
 	int root = sqrt(SIZE);

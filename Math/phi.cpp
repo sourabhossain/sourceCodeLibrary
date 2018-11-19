@@ -10,7 +10,7 @@ using namespace std;
 int phi(int n) { 
 	int total = n, root = sqrt(n);
 
-	for(int i = 2; n > 1 && i <= root; i++) {
+	for(int i = 2; i <= root; i++) {
 		if(n % i == 0) {
 			while(n % i == 0) {
 				n /= i;
