@@ -7,6 +7,31 @@
 
 using namespace std;
 
+void permutation(string str, int length) {
+	sort(str.begin(), str.end());
+    --length;
+
+	while(true) {
+		cout << str << endl;
+		int i = length;
+
+		while(str[i - 1] >= str[i]) {
+			if(--i == 0) {
+				return;
+			}
+		}
+
+		int j = length;
+
+		while(j > i && str[j] <= str[i - 1]) {
+			j--;
+		}
+
+		swap(str[i - 1], str[j]);
+		reverse(str.begin() + i, str.end());
+	}
+}
+
 void permutation(string str, int index, int length) {
 	if(index + 1 == length) {
 		cout << str << endl;
