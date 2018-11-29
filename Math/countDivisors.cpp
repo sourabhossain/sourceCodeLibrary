@@ -1,6 +1,6 @@
-/**
- *  Name: Count Divisors
- *  Author Name: Sourav Hossain
+/** 
+ * Name: Count Divisors
+ * Author Name: Sourav Hossain
  */
 
 #include <bits/stdc++.h>
@@ -21,7 +21,7 @@ void sieve() {
 	for(int i = 3; i < SIZE; i += 2) {
 		if(CHECK(i) == false) {
 			prime.push_back(i);
-            
+
             if(i <= root) {
 				for(int j = i * i; j < SIZE; j += i << 1) {
 					SET(j);
@@ -31,33 +31,31 @@ void sieve() {
 	}
 }
 
-int countDivisors(long long n) {
-	int divisor = 1, root = sqrt(n);
+int number_of_factors(int n) {
+    int divisor = 1, root = sqrt(n);
 
 	for(int i = 0, length = prime.size(); i < length && prime[i] <= root; i++) {
-		if(n % prime[i] == 0) {
-			int count = 1;
+        int count = 0;
 
-			while(n % prime[i] == 0) {
-				n /= prime[i];
-				count++;
-			}
+        while(n % prime[i] == 0) {
+            n /= prime[i];
+            count++;
+        }
 
-			divisor *= count;
-		}
+        divisor *= ++count;
 	}
 
-	return divisor;
+	return (n == 1)? divisor : divisor << 1;
 }
 
-int main()
+int main() 
 {
-	sieve();
-	long long n;
+    sieve();
+    int n;
 
-	while(scanf("%lld", &n) != EOF) {
-		printf("%d\n", countDivisors(n));
-	}
+    while(scanf("%d", &n) && n) {
+        printf("%d\n", number_of_factors(n));
+    }
 
-	return 0;
+    return 0;
 }
