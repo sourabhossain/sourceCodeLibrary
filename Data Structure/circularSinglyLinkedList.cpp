@@ -116,8 +116,7 @@ void insert(int key, int item) {
         
         perviousNode = currentNode;
         currentNode = currentNode->next;
-    }
-    while(currentNode != head);
+    } while(currentNode != head);
     
     pushBack(item);  
 }  
@@ -145,8 +144,7 @@ void erase(int item) {
         
         perviousNode = currentNode;
         currentNode = currentNode->next;
-    }
-    while(currentNode != head);
+    } while(currentNode != head);
 }  
 
 bool empty() {
@@ -180,12 +178,10 @@ void sort() {
             }
             
             innerLoop = innerLoop->next;
-        }
-        while(innerLoop != outerLoop);
+        } while(innerLoop != outerLoop);
         
         outerLoop = outerLoop->next;
-    }
-    while(outerLoop != head);
+    } while(outerLoop != head);
 }  
 
 bool search(int value) {
@@ -201,8 +197,7 @@ bool search(int value) {
         }
         
         searchNode = searchNode->next;
-    }
-    while(searchNode != head);
+    } while(searchNode != head);
     
     return false;
 }  
@@ -218,8 +213,7 @@ int size() {
     do {
         ++nodeCount;
         sizeNode = sizeNode->next;
-    }
-    while(sizeNode != head);
+    } while(sizeNode != head);
     
     return nodeCount;
 }  
@@ -254,8 +248,7 @@ void print() {
     do {
         printf("%d ", printNode->value);
         printNode = printNode->next;
-    }
-    while(printNode != head);
+    } while(printNode != head);
     putchar('\n');
 } 
 

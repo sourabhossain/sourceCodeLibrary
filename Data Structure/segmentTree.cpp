@@ -52,7 +52,7 @@ void update(int node, int b, int e, int i, int value) {
 }
 
 int main(int argc, char const *argv[])
-{
+{   
 	int n;
 
 	cin >> n;

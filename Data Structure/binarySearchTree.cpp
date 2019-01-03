@@ -114,6 +114,8 @@ Node *erase(Node *node, int item) {
         node->data = child->data;
         node->right = erase(node->right, child->data);
     }
+
+    return node;
 }
 
 bool isBST(Node* node) {
@@ -223,6 +225,27 @@ void labelOrder(Node *node) {
     }
 }
 
+void ZigzagLabelOrder(Node *node) {
+    if(node != NULL) {
+        queue<Node*> q;
+        q.push(node);
+
+        while(!q.empty()) {
+            Node *current = q.front();
+            q.pop();
+            printf("%d ", current->data);
+
+            if(current->right != NULL) {
+                q.push(current->right);
+            }
+
+            if(current->left != NULL) {
+                q.push(current->left);
+            }
+        }
+    }
+}
+
 int main()
 {
     Node *root = NULL;
@@ -248,6 +271,10 @@ int main()
 
     puts("\n\nLabel-Order:");
     labelOrder(root);
+    putchar('\n');
+
+    puts("\n\nZigzag-Label-Order:");
+    ZigzagLabelOrder(root);
     putchar('\n');
 
     printf("\nMaximum: %d\n", maximum(root)->data);

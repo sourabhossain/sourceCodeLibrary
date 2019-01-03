@@ -333,6 +333,47 @@ void reverse_print(Node* node) {
     printf("%d ", node->value);
 }
 
+/**
+
+Node *merge(Node *l, Node *ll) {
+    Node *node = get(-1);
+    Node *current = node;
+
+    while(l && ll) {
+        if(l->value > ll->value) {
+            current->next = ll;
+            ll = ll->next;
+        } else {
+            current->next = l;
+            l = l->next;
+        }
+
+        current = current->next;
+    }
+
+    current->next = (l)? l : ll;
+    return node->next;
+}
+
+Node *sort(Node *node) {
+    if(!node || !node->next) {
+        return node;
+    }
+
+    Node *fast = head, *slow = head, *pre = head;
+
+    while(fast && fast->next) {
+        pre = slow;
+        slow = slow->next;
+        fast = fast->next->next;
+    }
+
+    pre->next = NULL;
+    return merge(sort(head), sort(slow)); 
+}
+
+**/
+
 void swap(int *first, int *second) {
     *first ^= *second;
     *second ^= *first;
