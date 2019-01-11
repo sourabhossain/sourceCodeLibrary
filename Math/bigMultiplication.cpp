@@ -35,7 +35,7 @@ string bigMultiplication(string first, string second) {
 	}
 
 	int i = result.size() - 1;
-	while(i >= 0 && result[i] == 0) {
+	while(i > 0 && result[i] == 0) {
 		i--;
 	}
 
