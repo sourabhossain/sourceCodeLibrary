@@ -37,18 +37,17 @@ int query(int node, int b, int e, int i, int j) {
 }
 
 void update(int node, int b, int e, int i, int value) {
-	if(i > e || i < b) {
-		return;
-	}
+    if(b == e) {
+        tree[node] = value;
+    } else {
+        if(i <= MID(b, e)) {
+            update(LEFT(node), b, MID(b, e), i, value);
+        } else {
+            update(RIGHT(node), MID(b, e) + 1, e, i, value);
+        }
 
-	if(b >= i && e <= i) {
-		tree[node] = value;
-		return;
-	}
-
-	update(LEFT(node), b, MID(b, e), i, value);
-	update(RIGHT(node), MID(b, e), e, i, value);
-	tree[node] = tree[LEFT(node)] + tree[RIGHT(node)];
+        tree[node] = tree[LEFT(node)] + tree[RIGHT(node)];
+    }
 }
 
 int main(int argc, char const *argv[])
