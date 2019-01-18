@@ -4,6 +4,7 @@
   */
 
 #include <bits/stdc++.h>
+#define SIZE 1001
 
 using namespace std;
 
@@ -31,8 +32,21 @@ string bigAddition(string first, string second) {
 	return (carry)? to_string(carry) + result : result;
 }
 
-int int main(int argc, char const *argv[])
+int main(int argc, char const *argv[])
 {
-	
+    string fibonacci[SIZE];
+
+    fibonacci[0] = "0";
+    fibonacci[1] = fibonacci[2] = "1";
+
+    for(int i = 3; i < SIZE; i++) {
+        fibonacci[i] = bigAddition(fibonacci[i - 1], fibonacci[i - 2]);
+    }
+
+    int n;
+
+    cin >> n;
+    cout << fibonacci[n] << endl;
+
 	return 0;
 }
