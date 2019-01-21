@@ -11,14 +11,14 @@ int matrix[101][101];
 
 int main(int argc, char const *argv[])
 {
-	int node, edge, x, y;
+	int node, edge, u, v;
 
 	scanf("%d%d", &node, &edge);
 
 	for(int i = 0; i < edge; i++) {
-		scanf("%d%d", &x, &y);
-		matrix[x][y] = 1;
-		matrix[y][x] = 1;
+		scanf("%d%d", &u, &v);
+		matrix[u][v] = 1;
+		matrix[v][u] = 1;
 	}
 
 	for(int i = 1; i <= node; i++) {
