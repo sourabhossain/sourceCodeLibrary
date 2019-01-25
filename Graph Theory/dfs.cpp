@@ -33,8 +33,8 @@ void dfs(int u) {
 int main(int argc, char const *argv[])
 {
 	int node, edges;
-    
-    cin >> node, edges;
+
+    cin >> node >> edges;
 
 	for(int i = 0, u, v; i < edges; i++) {
 		cin >> u >> v;
@@ -48,7 +48,7 @@ int main(int argc, char const *argv[])
 	}
 
 	for(int i = 1; i <= node; i++) {
-		cout << i << " --> " << d[i] << " --> " << f[i] << endl; 
+		cout << i << " --> " << d[i] << " --> " << f[i] << endl;
 	}
 
 	return 0;
