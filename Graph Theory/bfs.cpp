@@ -8,9 +8,12 @@
 using namespace std;
 
 void bfs(int node, vector<vector<int> >& g, int source) {
-	bool visited[node + 1] = {0};
+	bool visited[node + 1];
 	int distance[node + 1];
 	queue<int> q;
+    
+    memset(visited, 0, sizeof(visited));
+    memset(distance, -1, sizeof(distance));
 
 	q.push(source);
 	visited[source] = 1;
