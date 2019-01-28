@@ -15,28 +15,28 @@ using namespace std;
 vector<int> segment[SIZE << 2];
 int n, data[SIZE];
 
-void build(int x, int s, int e) {
+void build(int node, int s, int e) {
 	if(s == e) {
-		segment[x].push_back(data[s]);
+		segment[node].push_back(data[s]);
 		return;
 	}
 
-	build(LEFT(x), s, MID(s, e));
-	build(RIGHT(x), MID(s, e) + 1, e);
-	merge(segment[LEFT(x)].begin(), segment[LEFT(x)].end(), segment[RIGHT(x)].begin(), segment[RIGHT(x)].end(), back_inserter(segment[x]));
+	build(LEFT(node), s, MID(s, e));
+	build(RIGHT(node), MID(s, e) + 1, e);
+	merge(segment[LEFT(node)].begin(), segment[LEFT(node)].end(), segment[RIGHT(node)].begin(), segment[RIGHT(node)].end(), back_inserter(segment[node]));
 }
 
-int query(int x, int s, int e, int l, int r, int k) {
+int query(int node, int s, int e, int l, int r, int k) {
 	if(r < s || e < l) {
 		return -1;
 	}
 
 	if(l <= s && e <= r) {
-		auto num = lower_bound(segment[x].begin(), segment[x].end(), k + 1);
-		return (num != segment[x].end())? *num : -1;
+		auto num = lower_bound(segment[node].begin(), segment[node].end(), k + 1);
+		return (num != segment[node].end())? *num : -1;
 	}
 
-	return max(query(LEFT(x), s, MID(s, e), l, r, k), query(RIGHT(x), MID(s, e) + 1, e, l, r, k));
+	return max(query(LEFT(node), s, MID(s, e), l, r, k), query(RIGHT(node), MID(s, e) + 1, e, l, r, k));
 }
 
 int main(int argc, char const *argv[])
