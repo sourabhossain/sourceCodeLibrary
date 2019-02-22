@@ -9,7 +9,7 @@ using namespace std;
 
 void insertionSort(vector<int>& data, int length) {
     for(int i = 1; i < length; i++) {
-        for(int j = i; data[j - 1] > data[j] && j > 0; j--) {                 
+        for(int j = i; j > 0 && data[j - 1] > data[j]; j--) {                 
             swap(data[j - 1], data[j]);     
         }
     }
