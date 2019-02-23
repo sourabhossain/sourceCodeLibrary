@@ -3,7 +3,7 @@
  *  Autor Name: Sourav Hossain
  */
 
-#include <bits/stdc++.h>
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -36,12 +36,12 @@ void merge(int left, int mid, int right, vector<int>& data) {
 void mergeSort(int left, int right, vector<int>& data) {
 	if(left < right) {
 		int mid = left + (right - left) / 2;
-		 
+
 		mergeSort(left, mid, data);
 		mergeSort(mid + 1, right, data);
 		merge(left, mid, right, data);
 	}
-} 
+}
 
 int main()
 {
