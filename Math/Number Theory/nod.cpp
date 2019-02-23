@@ -7,15 +7,15 @@
 
 using namespace std;
 
-int main() 
+int main()
 {
-	int n;
+    int n;
 
-	scanf("%d", &n);
-    
+	  scanf("%d", &n);
+
     set<int> nod;
-	int root = sqrt(n);
-    
+	  int root = sqrt(n);
+
     nod.insert(1);
     nod.insert(n);
 
@@ -25,12 +25,12 @@ int main()
     		nod.insert(n / i);
     	}
     }
-    
-    printf("%d = ", n); 
+
+    printf("%d = ", n);
     for(set<int>::iterator it = nod.begin(); it != nod.end(); it++) {
     	printf("%d ", *it);
     }
     putchar('\n');
 
-	return 0;
+	  return 0;
 }
