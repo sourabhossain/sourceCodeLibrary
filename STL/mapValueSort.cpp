@@ -20,7 +20,7 @@ multimap<value, key> valueSort(map<key, value> const &m) {
 
 int main(int argc, char const *argv[])
 {
-	map<string, int> m = {{"two", 2}, {"one", 1}, {"four", 4}, {"three", 3}};
+	map<string, int> m = {{"two", 2}, {"one", 1}, {"five", 5}, {"four", 4}, {"three", 3}};
 	multimap<int, string> mm = valueSort(m);
 
 	for(auto const &item : mm) {
