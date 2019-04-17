@@ -17,6 +17,16 @@ void bubbleSort(vector<int>& data, int length) {
     }
 }
 
+void bubbleSort(vector<int>& data, int length) {
+    for(int i = length; i > 0; i--) {
+        for(int j = 0; j < i - 1; j++) {
+            if(data[j] > data[j + 1]) {
+                swap(data[j], data[j + 1]);
+            }
+        }
+    }
+}
+
 int main()
 {
     int length;
