@@ -1,6 +1,7 @@
 /**
  *  Name: Power Recursion
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
+ *  Gmail: cpsourab@gmail.com 
  */
 
 #include <bits/stdc++.h>
@@ -8,23 +9,16 @@
 using namespace std;
 
 int power(int n, int p) {
-    if(p == 0) {
-    	return 1;
-    }	
-
-    if(p == 1) {
-    	return n;
+    if(p < 1) {
+        return 1;
     }
-    
-    int temp = power(n, p / 2);
-    temp *= temp;
 
     if(p & 1) {
-        temp *= n;
+        return n * power(n * n, p >> 1);
     }
 
-    return temp;
-}  
+    return power(n * n, p >> 1);
+}
 
 int main()
 {
