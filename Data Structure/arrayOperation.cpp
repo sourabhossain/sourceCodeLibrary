@@ -100,7 +100,57 @@ void sort() {
             swap(&data[j-1], &data[j]);  
         }
     }
-}  
+}
+
+bool isSorted() {
+    for(int i = 1; i < top; i++) {
+        if(data[i - 1] > data[i]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+bool search(int value) {
+    int left = 0, right = top, mid;
+    
+    while(left <= right) {
+        mid = (left + right) / 2;
+        
+        if(data[mid] == value) {
+            return true;
+        }    
+        
+        if(data[mid] < value) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
+    
+    return false;
+}
+
+bool index(int value) {
+    for(int i = 0; i < top; i++) {
+        if(data[i] == value) {
+            return i;
+        }
+    }
+    
+    return -1;
+}
+
+void reverse() {
+    int length = top;
+    
+    for(int i = 0; i < length; i++) {
+        data[i] ^= data[--length];
+        data[length] ^= data[i];
+        data[i] ^= data[length];
+    }
+}
 
 bool empty() {
     if(top == 0) {
@@ -120,7 +170,7 @@ void print() {
         return;
     }
 
-    for(int i = 0; i <  top; ++i) {
+    for(int i = 0; i < top; ++i) {
         printf("%d ", data[i]);
     }
     putchar('\n');
