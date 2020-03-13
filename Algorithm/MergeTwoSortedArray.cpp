@@ -1,6 +1,6 @@
 /**
  * Name: Merge Two Sorted Array
- * Author Name: Sourav Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
