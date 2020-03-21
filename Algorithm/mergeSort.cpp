@@ -1,6 +1,6 @@
 /**
  *  Name: Merge Sort
- *  Autor Name: Sourav Hossain
+ *  Autor Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h> 
