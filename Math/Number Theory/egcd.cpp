@@ -1,19 +1,20 @@
 /**
  *  Name: Extended Euclid
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
+#define long long ll;
 
 using namespace std;
 
 /** 
 
-#define pii pair<int, int>
+#define pii pair<ll, ll>
 #define x first
 #define y second
 
-pii egcd(long long a, long long b) {
+pii egcd(ll a, ll b) {
 	if(b == 0) {
 		return pii(1, 0);
 	}
@@ -24,15 +25,15 @@ pii egcd(long long a, long long b) {
 
 */
 
-long long egcd(long long a, long long b, long long& x, long long& y) {
+ll egcd(ll a, ll b, ll& x, ll& y) {
 	if(b == 0) {
 		x = 1;
 		y = 0;
 		return a;
 	}
 
-	long long xx, yy;
-	long long gcd = egcd(b, a % b, xx, yy);
+	ll xx, yy;
+	ll gcd = egcd(b, a % b, xx, yy);
     
     x = yy;
     y = xx - yy * (a / b);
@@ -41,10 +42,10 @@ long long egcd(long long a, long long b, long long& x, long long& y) {
 
 int main()
 {
-	long long a, b, x, y;
+	ll a, b, x, y, gcd;
 
 	cin >> a >> b;
-	long long gcd = egcd(a, b, x, y);
+	gcd = egcd(a, b, x, y);
 	cout << x << " " << y << " " << gcd << endl;
 
 	return 0;
