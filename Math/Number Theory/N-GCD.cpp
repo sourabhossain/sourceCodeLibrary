@@ -21,7 +21,11 @@ int n_gcd(int *data, int size) {
 	int i, GCD = data[0];
 
 	for(i = 1; i < size; i++) {
-		GCD = gcd(GCD, data[i]);  
+		GCD = gcd(GCD, data[i]);
+
+        if(GCD == 1) {
+            return 1;
+        }  
 	}
 
 	return GCD;
