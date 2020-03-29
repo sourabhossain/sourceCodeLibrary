@@ -1,6 +1,6 @@
 /**
  *  Name: Catalan Number
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
