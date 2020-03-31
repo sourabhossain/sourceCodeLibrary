@@ -1,12 +1,12 @@
 /**
  *  Name: Singly Linked List
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
 
 using namespace std;
-
+ 
 struct Node {
 	int value;
 	Node *next;
