@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
 	int n;
 
 	while(scanf("%d", &n) != EOF) {
-		(isPrime(n))? puts("YES") : puts("NO");
+		printf("%s\n", isPrime(n)? "YES" : "NO");
 	}
 
 	return 0;
