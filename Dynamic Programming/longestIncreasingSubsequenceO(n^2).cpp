@@ -1,6 +1,6 @@
 /**
  *  Name: Longest Increasing Subsequence O(n^2)
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
