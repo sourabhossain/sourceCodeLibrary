@@ -1,6 +1,6 @@
 /**
  *  Name: Lower Bound Searching
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
