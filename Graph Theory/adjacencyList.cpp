@@ -1,6 +1,6 @@
 /**
  *  Name: Adjacency List
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 #include <bits/stdc++.h>
 #define SIZE 100001  
