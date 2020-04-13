@@ -1,6 +1,6 @@
 /**
  *  Name: Print All Sub String
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
