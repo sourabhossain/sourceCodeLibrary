@@ -1,6 +1,6 @@
 /**
  *  Name: Big Number Multiplication
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
