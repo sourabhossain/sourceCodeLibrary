@@ -1,6 +1,6 @@
 /**
  * Name: Summation of Divisors
- * Author Name: Sourav Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>

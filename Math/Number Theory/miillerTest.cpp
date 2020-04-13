@@ -1,6 +1,6 @@
 /**
  * Name: Miller-Rabin Primality Test
- * Author Name: Sourav Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
