@@ -1,6 +1,6 @@
 /**
  * Name: Sqrt root Double
- * Author Name: Sourav Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>

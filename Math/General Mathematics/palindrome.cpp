@@ -1,6 +1,6 @@
 /**
  * Name: Number Palindrome
- * Author Name: Sourav Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <stdio.h>
