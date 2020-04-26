@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int lcm(string str1, string str2) {
+int longestCommonSubsequence(string str1, string str2) {
     int m = str1.size(), n = str2.size();
 	int dp[m + 1][n + 1];
 
@@ -36,7 +36,7 @@ int main(int argc, char const *argv[])
 {
 	string text1 = "abcde", text2 = "ace";
 	
-	cout << lcm(text1, text2) << endl;
+	cout << longestCommonSubsequence(text1, text2) << endl;
 
 	return 0;
 }
