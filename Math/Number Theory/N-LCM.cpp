@@ -5,41 +5,42 @@
 
 #include <bits/stdc++.h>
 
-int gcd(int first, int second) {
-	int temp;
+int gcd(int first, int second)
+{
 
-	while(second != 0) {
-		temp = second;
-		second = first % second;
-		first = temp;
+	while (second)
+	{
+		second ^= first ^= second ^= first %= second;
 	}
 
 	return first;
-} 
+}
 
-int n_lcm(int *data, int size) {
-	int LCM = data[0];
+int n_lcm(int *data, int n)
+{
+	int lcm = data[0];
 
-	for(int i = 1; i < size; i++) {
-		LCM = (LCM / gcd(LCM, data[i])) * data[i];
+	for (int i = 1; i < n; i++)
+	{
+		lcm = (lcm / gcd(lcm, data[i])) * data[i];
 	}
 
-	return LCM;
-}  
+	return lcm;
+}
 
 int main()
 {
-	int size;
-    
-	scanf("%d", &size);
-	int *data = new int(size);
-    
-    for(int i = 0; i < size; i++) {
-    	scanf("%d", &data[i]);
-    }
+	int n;
 
-    printf("%d\n", n_lcm(data, size));
+	scanf("%d", &n);
+	int data[n];
 
-    delete [] data;
+	for (int i = 0; i < n; i++)
+	{
+		scanf("%d", &data[i]);
+	}
+
+	printf("%d\n", n_lcm(data, n));
+
 	return 0;
 }
