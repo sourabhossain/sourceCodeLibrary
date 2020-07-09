@@ -8,7 +8,7 @@
 int gcd(int first, int second) {
 	int temp;
 
-	while(second != 0) {
+	while(second) {
 		temp = first % second;
 		first = second;
 		second = temp;
