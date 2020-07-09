@@ -14,9 +14,9 @@ double gcd(double a, double b) {
 
 	if(fabs(b) < 0.0001) {
 		return a;
-	} else {
-		return gcd(b, a - floor(a / b) * b);
 	}
+	
+	return gcd(b, a - floor(a / b) * b);
 }
 
 int main(int argc, char const *argv[])
