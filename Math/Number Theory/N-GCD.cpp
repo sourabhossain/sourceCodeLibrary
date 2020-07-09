@@ -5,45 +5,50 @@
 
 #include <bits/stdc++.h>
 
-int gcd(int first, int second) {
+int gcd(int first, int second)
+{
     int temp;
-    
-    while(second != 0) {
+
+    while (second)
+    {
         temp = second;
         second = first % second;
         first = temp;
     }
-    
+
     return first;
-}  
+}
 
-int n_gcd(int *data, int size) {
-	int i, GCD = data[0];
+int n_gcd(int *data, int n)
+{
+    int i, GCD = data[0];
 
-	for(i = 1; i < size; i++) {
-		GCD = gcd(GCD, data[i]);
+    for (i = 1; i < n; i++)
+    {
+        GCD = gcd(GCD, data[i]);
 
-        if(GCD == 1) {
+        if (GCD == 1)
+        {
             return 1;
-        }  
-	}
+        }
+    }
 
-	return GCD;
-}  
+    return GCD;
+}
 
 int main()
 {
-    int size;
+    int n;
 
-    scanf("%d", &size);
-    int *data =  new int(size);
-    
-    for(int i = 0; i < size; i++) {
-    	scanf("%d", &data[i]);
+    scanf("%d", &n);
+    int data[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        scanf("%d", &data[i]);
     }
 
-    printf("%d\n", n_gcd(data, size));
+    printf("%d\n", n_gcd(data, n));
 
-    delete [] data;
-	return 0;
-} 
+    return 0;
+}
