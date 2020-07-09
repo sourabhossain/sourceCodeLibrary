@@ -22,7 +22,7 @@ int main()
 	int first, second;
 	
 	scanf("%d%d", &first, &second);
-	printf("%d\n", gcd(first, second));
+	printf("%d\n", gcd(second, first - second));
 	
 	return 0;
 }
