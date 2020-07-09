@@ -8,7 +8,7 @@
 using namespace std;
 
 int gcd(int firstElement, int secondElement) {
-	return (secondElement == 0)? firstElement : gcd(secondElement, firstElement % secondElement);  
+	return (secondElement)? gcd(secondElement, firstElement % secondElement) : firstElement;
 }
 
 int main()
