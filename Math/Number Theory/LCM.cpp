@@ -6,10 +6,9 @@
 #include <stdio.h>
 
 int gcd(int first, int second) {
-    while(second != 0) {
-        int temp = second;
-        second = first % second;
-        first = temp;
+
+    while(second) {
+        second ^= first ^= second ^= first %= second;
     }
 
     return first;
