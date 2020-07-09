@@ -8,8 +8,7 @@
 int gcd(int first, int second)
 {
 
-	while (second)
-	{
+	while(second) {
 		second ^= first ^= second ^= first %= second;
 	}
 
