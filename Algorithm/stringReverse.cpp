@@ -5,11 +5,13 @@
 
 #include <bits/stdc++.h>
 
+using namespace std;
+
 void stringReverse(string& line) {
     int length = line.size();
 
     for(int i = 0; i < length; i++) {
-        swap(string[i], string[--length]);
+        swap(line[i], line[--length]);
     }
 }
 
