@@ -1,6 +1,6 @@
 /**
  * Name: Insertion Sort
- * Autor Name: Sourab Hossain
+ * Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>
@@ -18,10 +18,10 @@ void insertionSort(vector<int>& data, int length) {
 int main()
 {
     int length; 
-   
+
     scanf("%d", &length);
     vector<int> data(length);
-    
+
     for(int i = 0; i < length; i++) {
         scanf("%d", &data[i]);
     }
@@ -32,6 +32,6 @@ int main()
         printf("%d ", data[i]);
     }
     putchar('\n');
-    
+
     return 0;
 }
