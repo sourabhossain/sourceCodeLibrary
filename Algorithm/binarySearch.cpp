@@ -17,17 +17,17 @@ int binarySearch(vector<int>& data, int target) {
     int left = 0, right = length, mid;
 
     while(left <= right) {
-    	mid = left + (right - left) / 2;
+		mid = left + (right - left) / 2;
 
-    	if(data[mid] == target) {
-    		return mid;
-    	}
-
-    	if(data[mid] < target) {
-    		left = mid + 1;
-    	} else {
-    		right = mid - 1;
-    	}
+		if(data[mid] == target) {
+			return mid;
+		}
+		
+		if(data[mid] < target) {
+			left = mid + 1;
+		} else {
+			right = mid - 1;
+		}
     }
 
 	return -1;
@@ -36,17 +36,17 @@ int binarySearch(vector<int>& data, int target) {
 int main()
 {
     int length, target;
-    
+
     scanf("%d%d", &length, &target);
     vector <int> data(length);
-    
+
     for(int i = 0; i < length; i++) {
         scanf("%d", &data[i]);
     }
-    
+
     sort(data.begin(), data.end());
 
     printf("%d\n", binarySearch(data, target));
-    
+
 	return 0;
 }
