@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int maximumSumSubarray(int *data, int n)
+int maximumSumSubArray(int *data, int n)
 {
     int minPrefixSum = 0;
     int result = INT_MIN;
@@ -38,7 +38,7 @@ int main()
         scanf("%d", &data[i]);
     }
 
-    printf("%d\n", maximumSumSubarray(data, n));
+    printf("%d\n", maximumSumSubArray(data, n));
 
     return 0;
 }
