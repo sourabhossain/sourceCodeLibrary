@@ -32,6 +32,30 @@ int mySqrt(int n) {
     return right;
 }
 
+int findSquareRoot(int n) {
+    if(n <= 1) {
+        return n;
+    }
+    
+    int low = 1, high = n;
+    
+    while(low <= high) {
+        int mid = low + (high - low) / 2;
+        
+        if(mid * mid <= n && (mid + 1) * (mid + 1) > n) {
+            return mid;
+        }
+        
+        if(mid * mid <= n) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    
+    return high;
+}
+
 int main()
 {
 	int n;
