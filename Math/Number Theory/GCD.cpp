@@ -3,7 +3,9 @@
  * Author Name: Sourab Hossain
  */
 
-#include <stdio.h>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 int gcd(int m, int n) {
     int minValue = min(m, n);
