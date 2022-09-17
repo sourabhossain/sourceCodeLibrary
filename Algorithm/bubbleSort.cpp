@@ -18,6 +18,21 @@ void bubbleSort(vector<int>& data, int length) {
 }
 
 void bubbleSort(vector<int>& data, int length) {
+    bool hasSwapped = true;
+
+    while(hasSwapped) {
+         hasSwapped = false;
+
+         for(int i = 0; i < length - 1; i++) {
+             if(data[i] > data[i + 1]) {
+                 swap(data[i], data[i + 1]);
+                 hasSwapped = true;
+             }
+         }
+    }
+}
+
+void bubbleSort(vector<int>& data, int length) {
     for(int i = length; i > 0; i--) {
         bool noSwap = true;
 
