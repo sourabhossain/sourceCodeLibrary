@@ -7,6 +7,28 @@
 
 using namespace std;
 
+#define SIZE 10001
+
+int dp[SIZE][SIZE];
+
+int lcs(string word1, string word2, int m, int n) {
+    if(m == 0 || n == 0) {
+        return 0;
+    }
+
+    if(dp[m][n] > 0) {
+        return dp[m][n];
+    }
+
+    if(word1[m - 1] == word2[n - 1]) {
+        dp[m][n] = 1 + lcs(word1, word2, m - 1, n - 1);
+    } else {
+       dp[m][n] = max(lcs(word1, word2, m, n - 1), lcs(word1, word2, m - 1, n));
+    }
+
+    return dp[m][n];
+}
+
 int longestCommonSubsequence(string str1, string str2) {
     int m = str1.size(), n = str2.size();
     int dp[m + 1][n + 1];
