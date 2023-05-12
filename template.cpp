@@ -6,6 +6,7 @@ using namespace std;
 #define FASTER_RUN ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define IGNORE cin.ignore();
 #define PI acos(-1)
+#define DEBUG(data) cout << "Line(" << __LINE__ << ") --> " << #data << " = " << (data) << endl;
 
 void setIO(const string& file_name) {
     freopen((file_name + ".in").c_str(), "r", stdin);
