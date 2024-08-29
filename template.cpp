@@ -13,12 +13,18 @@ void setIO(const string& file_name) {
     freopen((file_name + ".out").c_str(), "w", stdout);
 }
 
+namespace Solution1 {
+    void solve() {
+        cout << "Hello! Sourab ~_~" << endl;
+    }
+}
+
 int main()
 {
     setIO("problem_name");
     FASTER_RUN;
 
-    cout << "Hello! Sourab ~_~" << endl;
+    Solution1::solve();
 
     return 0;
 }
