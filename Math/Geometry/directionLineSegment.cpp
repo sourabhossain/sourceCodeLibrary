@@ -1,6 +1,6 @@
 /**
  *  Name: Direction of a Line Segment
- *  Author Name: Sourav Hossain
+ *  Author Name: Sourab Hossain
  */
 
 #include <bits/stdc++.h>

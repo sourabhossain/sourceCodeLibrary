@@ -4,68 +4,85 @@
  */
 
 #include <bits/stdc++.h>
+
 #define SIZE 100001
 #define LEFT(n) (n << 1)
 #define RIGHT(n) ((n << 1) + 1)
-#define MID(left, right) (left + ((right - left) >> 1))
+#define MID(start, end) (start + ((end - start) >> 1))
 
 using namespace std;
 
-int arr[SIZE], tree[SIZE * 3];
+int inputArray[SIZE], segmentTree[SIZE * 3];
 
-void init(int node, int b, int e) {
-	if(b == e) {
-		tree[node] = arr[b];
+void buildTree(int node, int start, int end) {
+	if (start == end) {
+		segmentTree[node] = inputArray[start];
 		return;
 	}
 
-	init(LEFT(node), b, MID(b, e));
-	init(RIGHT(node), MID(b, e) + 1, e);
-	tree[node] = tree[LEFT(node)] + tree[RIGHT(node)];
+	int leftChild = LEFT(node);
+	int rightChild = RIGHT(node);
+	int mid = MID(start, end);
+
+	buildTree(leftChild, start, mid);
+	buildTree(rightChild, mid + 1, end);
+	segmentTree[node] = segmentTree[leftChild] + segmentTree[rightChild];
 }
 
-int query(int node, int b, int e, int i, int j) {
-	if(i > e || j < b) {
+int rangeQuery(int node, int start, int end, int queryStart, int queryEnd) {
+	if (queryStart > end || queryEnd < start) {
 		return 0;
 	}
 
-	if(b >= i && e <= j) {
-		return tree[node];
+	if (start >= queryStart && end <= queryEnd) {
+		return segmentTree[node];
 	}
 
-	return query(LEFT(node), b, MID(b, e), i, j) + query(RIGHT(node), MID(b, e) + 1, e, i, j);	
+	int leftChild = LEFT(node);
+	int rightChild = RIGHT(node);
+	int mid = MID(start, end);
+
+	return rangeQuery(leftChild, start, mid, queryStart, queryEnd) + rangeQuery(rightChild, mid + 1, end, queryStart, queryEnd);
 }
 
-void update(int node, int b, int e, int i, int value) {
-    if(b == e) {
-        tree[node] = value;
-    } else {
-        if(i <= MID(b, e)) {
-            update(LEFT(node), b, MID(b, e), i, value);
-        } else {
-            update(RIGHT(node), MID(b, e) + 1, e, i, value);
-        }
-
-        tree[node] = tree[LEFT(node)] + tree[RIGHT(node)];
-    }
-}
-
-int main(int argc, char const *argv[])
-{   
-	int n;
-
-	cin >> n;
-
-	for(int i = 1; i <= n; i++) {
-		cin >> arr[i];
+void updateTree(int node, int start, int end, int updateIndex, int newValue) {
+	if (updateIndex > end || updateIndex < start) {
+		return;
 	}
 
-	init(1, 1, n);
-	// update(1, 1, n, 2, 0);
-	// update(1, 1, n, 2, 2);
-   
-   cout << query(1, 1, n, 1, 5) << endl; 
-   cout << query(1, 1, n, 2, 3) << endl; 
-	
+	if (start == end) {
+		segmentTree[node] = newValue;
+		return;
+	}
+
+	int leftChild = LEFT(node);
+	int rightChild = RIGHT(node);
+	int mid = MID(start, end);
+
+	updateTree(leftChild, start, mid, updateIndex, newValue);
+	updateTree(rightChild, mid + 1, end, updateIndex, newValue);
+	segmentTree[node] = segmentTree[leftChild] + segmentTree[rightChild];
+}
+
+int main()
+{
+	int arraySize;
+	cin >> arraySize;
+
+	for (int i = 1; i <= arraySize; i++) {
+		cin >> inputArray[i];
+	}
+
+	buildTree(1, 1, arraySize);
+
+	cout << rangeQuery(1, 1, arraySize, 1, 5) << endl;
+	cout << rangeQuery(1, 1, arraySize, 2, 3) << endl;
+
+	updateTree(1, 1, arraySize, 2, 0);
+	cout << rangeQuery(1, 1, arraySize, 1, 5) << endl;
+
+	updateTree(1, 1, arraySize, 2, 2);
+	cout << rangeQuery(1, 1, arraySize, 1, 5) << endl;
+
 	return 0;
 }
